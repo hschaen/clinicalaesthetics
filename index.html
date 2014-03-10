@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Clinical Aesthethics - Villa Park, Ca Skin Care</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="icon" 
+      type="image/png" 
+      href="logos/favicon.ico">
+    <link href="bootstrap-source/docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-source/docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+
+    /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+
+    body {
+      padding-bottom: 40px;
+      color: #5a5a5a;
+    }
+
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: relative;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+
+    /* Remove border and change up box shadow for more contrast */
+    .navbar .navbar-inner {
+      border: 0;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    /* Downsize the brand/project name a bit */
+    .navbar .brand {
+      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 15px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 10px;
+    }
+
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 60px;
+    }
+
+    .carousel .container {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .carousel-control {
+      background-color: transparent;
+      border: 0;
+      font-size: 120px;
+      margin-top: 0;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+
+    .carousel .item {
+      height: 500px;
+    }
+    .carousel img {
+      min-width: 100%;
+      height: 500px;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin-bottom: 100px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #333;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+
+
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+
+    /* Featurettes
+    ------------------------- */
+
+    .featurette-divider {
+      margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    }
+    .featurette {
+      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+    }
+    .featurette-image {
+      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+    }
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 40px;
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-bottom: 40px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="bootstrap-source/docs/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bootstrap-source/docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootstrap-source/docs/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootstrap-source/docs/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="bootstrap-source/docs/assets/ico/apple-touch-icon-57-precomposed.png">
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36472247-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+
+  <body>
+
+
+
+    <!-- NAVBAR
+    ================================================== -->
+    <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
+    <div class="container navbar-wrapper">
+
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Clinical Aesthetics</a>
+          <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="about.html">About</a></li>
+             <li class="dropdown">
+                <a href="services.html">Services <b class="caret"></b></a>
+               <!-- <ul class="dropdown-menu">
+              <li class="nav-header">SPA Services</li>
+              <li><a href="services.html#facials">Facials</a></li>
+              <li><a href="services.html#peels">Peels</a></li>
+              <li><a href="services.html#microdermabrasion">Microdermabrasion</a></li>
+             
+              <li class="nav-header">Medical Services</li>
+              <li><a href="services.html#botox">Botox &reg;</a></li>
+              <li><a href="services.html#dysport">Dysport</a></li>
+              <li><a href="#juvederm">Juvederm</a></li>
+              <li><a href="services.html#platelet-rich-plasma-therapy">Platelet Rich Plasma Therapy</a></li>
+              <li><a href="services.html#perlane">Perlane</a></li>
+              <li><a href="services.html#restylane">Restylane</a></li>
+              <li><a href="services.html#galvanic-spa">Galvanic Spa</a></li>
+              <li><a href="services.html#latisse">Latisse &reg;</a></li>
+              <li class="nav-header"><a href="services-ultherapy">Ultherapy&reg;</a></li>
+              <li class="nav-header">Additional Services</li>
+              <li><a href="services.html#electrolysis">Electrolysis</a></li>
+              <li><a href="services.html#waxing">Waxing</a></li>
+              <li><a href="services.html#massage">Massage</a></li>
+              <li><a href="services.html#acupuncture">Acupuncture</a></li>
+              <li><a href="services.html#eyelash-extension">Eyelash Extension</a></li>
+              <li><a href="services.html#permanent-makeup">Permananent Makeup</a></li>
+            
+            </ul>-->
+              </li>
+
+<li><a href="products.html">Products</a></li>
+<li><a href="staff.html">Our Staff</a></li>
+<li><a href="before-and-after.html">Before & After</a></li>
+<li><a href="contact.html">Contact</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+               <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li> -->
+            </ul>
+          </div> <!--/.nav-collapse -->
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
+
+    </div><!-- /.container -->
+
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+       <div class="item active">
+          <img class=" hidden-tablet hidden-phone" src="slides/slide5.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Uplifting Ultrasound!</h1>
+              <p class="lead">Not a facelift but an uplift— <a href="http://www.ultherapy.com" target="_blank">Ultherapy</a> uses ultrasound technology to gradually strengthen and tone your skin from deep within.</p>
+              <a class="btn btn-large btn-primary" href="services-ultherapy.html">Learn More Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="item ">
+          <img class=" hidden-tablet hidden-phone" src="slides/slide1.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Villa Park Skin Care </h1>
+              <p class="lead">Clinical Aesthetics is a medical spa serving the Villa Park, CA area providing exceptional services to exceed the most demanding standards!</p>
+              <a class="btn btn-large btn-primary" href="contact.html">Book Your Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class=" hidden-tablet hidden-phone" src="slides/slide2.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Nature and Science</h1>
+              <p class="lead">Clinical Aesthetics believes the best results come from a combination of treatments 
+using both nature and science.</p>
+              <a class="btn btn-large btn-primary" href="services.html">View our Services</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="hidden-tablet hidden-phone" src="slides/slide3.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Serenity and Seclusion</h1>
+              <p class="lead">Take your mind off the stresses of life and treat yourself to a pleasant and calming experience.</p>
+              <a class="btn btn-large btn-primary" href="location.html">View Our Location</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="span4">
+          <img class="img-circle" src="images/location.jpg">
+          <h2>Location</h2>
+          <p>            17871 North Santiago Blvd, Suite 208 <br>
+            Villa Park CA 92861-4116<br>
+            <br>
+            Our business can be found on the Northeast corner of the Villa Park Town Center on Santiago Blvd and Wanda Rd. Clinical Aesthetics is NE of Rockwell's Restaurant, next door to City Hall and the County of Orange Public Library. Parking is available behind the Professional building.</p>
+          <p><a class="btn" href="contact.html#location">View details &raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <img class="img-circle" src="images/products.jpg">
+          <h2>Products</h2>
+          <p>At Clinical Aesthetics we believe that quality services depend on quality products; as such we are proud to use only the finest FDA approved beauty products by names like SkinCeuticals, Jan Marini and Neo Strata.<br>
+            <br/> 
+          Let our skilled team, help chose a skin care regimen specifically designed with your skin in mind today!</p>
+          <p><a class="btn" href="products.html">View details &raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <img class="img-circle" src="images/services.jpg">
+          <h2>Services</h2>
+          <p>All  of our skin rejuvenation treatments are FDA approved and have been proven to reduce the visible signs of aging while improving overall skin vitality.   All medical procedures are performed by licensed medical professionals under the supervision of owner, Dr. Kathleen Gallaher. </p>
+          <p><a class="btn" href="services.html">View details &raquo;</a></p>
+        </div><!-- /.span4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="images/zen-stone.PNG">
+        <h2 class="featurette-heading">Corrective and Enhancing Skincare. <span class="muted">Improve skin vitality.</span></h2>
+        <p class="lead">Clinical Aesthetics believes the best results come from a combination of treatments using both nature and science.  Our extensively trained, medically supervised staff perform your  personalized treatments in a spa-like setting, with the utmost concern for your comfort and satisfaction.</p><p><a class="btn" href="staff.html">Meet Our Staff &raquo;</a></p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-left" src="images/waterfall.png">
+        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
+        <p class="lead">You'll love our secluded location where we've created a relaxing and mellow environment just for you. Take your mind off the stresses of life and treat yourself to a pleasant and calming experience. </p><p><a class="btn" href="about.html">Learn About Us &raquo;</a></p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="images/location.png">
+        <h2 class="featurette-heading">Convenient Location. <span class="muted">Off the 55 fwy at Katella.</span></h2>
+        <p class="lead">Located at <a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&authuser=0&q=17871+Santiago+Blvd+Villa+Park+CA+92861-4116&aq=&vps=3&jsv=441c&sll=33.815423,-117.82054&sspn=0.001295,0.002642&vpsrc=6&ie=UTF8&view=map&cid=11086783469638894128&iwloc=A" target="_blank">17871 Santiago Blvd, Suite 208 in Villa Park</a>, our business can be found on the Northeast corner of the Villa Park Town Center on Santiago Blvd and Wanda Rd. Clinical Aesthetics is to the right of City Hall and next door to the County of Orange Public Library. Parking is available behind the Professional building.</p>
+        <p><a class="btn" href="contact.html#directions">Get Directions &raquo;</a></p>
+      </div>
+      
+       <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-left" src="images/logo.jpg">
+        <h2 class="featurette-heading">Contact us today. <span class="muted">We're waiting to hear from you.</span></h2>
+        <p class="lead"><!-- Do not change code! -->
+<table cellspacing="0" cellpadding="0" border="0"><tr><td><iframe width="400" height="490" frameborder="0" src="http://www.foxyform.com/form.php?id=335491&sec_hash=8f3bc5a07d2"></iframe></td></tr></table>
+<!-- Do not change code! --></p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+      <p align="right"><a href="#">Back to Top &uarr;</a></p>
+        <p>&copy; Clinical Aesthetics 2012 All Rights Reserved. Unauthorized duplication is prohibited.</p>
+        <p>17871 North Santiago Boulevard , Villa Park, CA 92861 | Phone: (714) 282-8180</p>
+        <p>Clinical Aesthetics is a Medical Spa in Villa Park, CA</p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td> 
+    <hr><div class="hidden-tablet hidden-phone">
+    <table width="100%" border="0" cellspacing="5" cellpadding="5">
+          <tr>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="index.html">Home</a></strong></h4></td>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="about.html">About</a></strong></h4>
+              <ul style="list-style-type:none; padding:0px; margin:0px;">
+                <li><a href="about.html#dr-kathleen">Dr. Kathleen G.</a></li>
+                <li><a href="about.html#our-specialty">Skin Care Specialists</a></li>
+                <li><a href="about.html#philosophy">Philosophy</a></li>
+              </ul>
+            <p>&nbsp;</p></td>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="services.html">Services</a></strong></h4>
+              <ul style="list-style-type:none; padding:0px; margin:0px;">
+                <li></li>
+                <li><a href="services.html#facials">Facials</a></li>
+                <li><a href="services.html#dermaplane">Dermaplane</a></li>
+                <li><a href="services.html#peels">Peels</a></li>
+                <li><a href="services.html#microdermabrasion">Microdermabrasion</a></li>
+              </ul>
+              <p>&nbsp;</p>
+              
+              <ul style="list-style-type:none; padding:0px; margin:0px;"><strong><a href="services.html#medical-services">Medical Services</a></strong>
+              <li><a href="services.html#botox">Botox &reg;</a></li>
+              <li><a href="services.html#dysport">Dysport</a></li>
+              <li><a href="#juvederm">Juvederm</a></li>
+              <li><a href="services.html#platelet-rich-plasma-therapy">Platelet Rich Plasma Therapy</a></li>
+              <li><a href="services.html#perlane">Perlane</a></li>
+              <li><a href="services.html#restylane">Restylane</a></li>
+             
+               <li><a href="services.html#latisse">Latisse &reg;</a><br>
+                <br>
+              </li>
+              </ul><ul style="list-style-type:none; padding:0px; margin:0px;">
+               <li><a href="services-ultherapy.html"><strong>Ultherapy&reg;</strong></a><br>
+                 <br>
+               </li></ul>
+               <ul style="list-style-type:none; padding:0px; margin:0px;"><strong><a href="spa-services">Additional Services</a></strong> <li><a href="services.html#galvanic-spa">Galvanic Spa</a></li>
+                <li><a href="services.html#electrolysis">Elecrolysis</a></li>
+                <li><a href="services.html#waxing">Waxing</a></li>
+                <li><a href="services.html#massage">Massage</a></li>
+                <li><a href="services.html#eyelash-extension">Eyelash Extension</a></li>
+                <li><a href="services.html#permanent-makeup">Permanent Makeup</a></li>
+              </ul>
+            <p>&nbsp;</p></td>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="products.html">Products</a></strong></h4>
+              <ul style="list-style-type:none; padding:0px; margin:0px;">
+                <li></li>
+                <li><a href="products.html#sc-correct">Correct</a></li>
+                <li><a href="products.html#sc-prevent">Prevent</a></li>
+                <li><a href="products.html#sc-cleanse">Cleanse</a></li>
+                <li><a href="products.html#sc-tone">Tone</a></li>
+                <li><a href="products.html#sc-moisturize">Moisturize</a></li></ul></td>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="staff.html">Our Staff</a></strong></h4>
+              <ul style="list-style-type:none; padding:0px; margin:0px;">
+                <li></li>
+              </ul></td>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="before-and-after.html">Before &amp; After</a></strong></h4>
+              <ul style="list-style-type:none; padding:0px; margin:0px;">
+                <li></li>
+              </ul>
+            <p>&nbsp;</p></td>
+            <td width="12%" align="left" valign="top"><h4><strong><a href="contact.html">Contact</a></strong></h4>
+<p>&nbsp;</p></td>
+          </tr>
+          <tr>
+          <td colspan="7" align="right"><!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="right"><tr><td align="center"></td></tr><tr><td align="right"><a href="#" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700');"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo"></a></td></tr></table><!-- PayPal Logo --></td></tr>
+        </table></div>
+        
+        </td>
+  </tr>
+</table>
+<div class="hidden-desktop">
+        
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="center"><a href="index.html">Home</a></td>
+    <td align="center"><a href="about.html">About</a></td>
+    <td align="center"><a href="services.html">Services</a></td>
+    <td align="center"><a href="products.html">Products</a></td>
+    <td align="center"><a href="staff.html">Our Staff</a></td>
+    <td align="center"><a href="before-and-after.html">Before and After</a></td>
+    <td align="center"><a href="contact.html">Contact</a></td>
+  </tr>
+  <tr>
+  <td align="center" colspan="7">
+  <!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="#" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700');"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo"></a></td></tr></table><!-- PayPal Logo --></td></tr>
+</table>
+
+        </div>
+        
+      </footer>
+
+    </div><!-- /.container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap-source/docs/assets/js/jquery.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-transition.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-alert.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-modal.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-dropdown.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-tab.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-tooltip.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-popover.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-button.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-collapse.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-carousel.js"></script>
+    <script src="bootstrap-source/docs/assets/js/bootstrap-typeahead.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
+  </body>
+</html>

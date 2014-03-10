@@ -1,0 +1,86 @@
+PHP FormMail Generator V1.0 - Readme
+==========================================================
+Author : Xue Wen Liang <s6software@users.sourceforge.net>
+Home   : http://phpfmg.sourceforge.net
+==========================================================
+
+  PHP FormMail Generator - A tool to ceate ready-to-use web forms in a flash.
+
+  Version 1.0
+  ---------------------------
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+  
+  Features : 
+  ---------------------------
+	. Unlimited fields of form 
+	. All standard type of fields, plus lots of template, such as credit card number & expiry date... 
+	. List/menu builder for multiple lists of Radio Buttons, Selection Menu, Check Box. 
+	. Error checking : credit card number & expiry date, email address, required fields checking. 
+	. Mail multiple attachments 
+	. Email auto responding 
+	. Store submitted form data to a text file 
+	. Multiple language support ( to do ) 
+	. Anti-spam feature for ISP companies( to do ) 
+
+  
+  Installation :
+  ---------------------------
+  	1. Get the source file and untar/unzip it as following step
+  		Unix :
+  		tar zxvf phpFormMailGenerator-php-x.xx.tar.gz
+
+		Windows :
+		use winrar or some other unzipping utility
+	
+	2. Upload the unpacked directory to your web server
+	
+	3. Make sure the permission of the directory has r+w+x ( read+write+execute )
+		Unix :
+		chmod -R 777 phpfmg
+		
+		Windows NTFS (NT4/2000/XP) :
+		. right click floder "phpfmg", select "properties"
+		. set allow Read+Write then "OK"
+
+	4. type the URL http://www.yourdomain.com/phpfmg/index.php to your browser
+		
+	
+  How to use this Generator :
+  ---------------------------
+	1. Define fields for your form.
+	
+	2. What happens after click "Generate" button:
+		. Attempt to save your fields to a .ini file
+		. If the .ini saved, try to out put two files : yyyymmdd-xxxx.php, yyyymmdd-xxxx.lib.php
+		. If all 3 files created, you will get a pop up window of your form
+		. Now you have a ready-to-use web form
+	
+	3. Download two files yyyymmdd-xxxx.php & yyyymmdd-xxxx.lib.php
+	
+	4. Rename file yyyymmdd-xxxx.php to what you want, such as order.php.
+	   don't rename file yyyymmdd-xxxx.lib.php.
+	
+	5. Upload that two files to your web site.
+	
+	6. Done!
+		
+  
+  Contacts
+  ---------------------------
+
+	If you have any questions regarding this PHP FormMail Generator scripts, please contact:
+	Xue Wen Liang <s6software@users.sourceforge.net>

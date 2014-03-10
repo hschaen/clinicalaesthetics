@@ -1,0 +1,67 @@
+﻿<!--METADATA TYPE="typelib" UUID="CD000000-8B95-11D1-82DB-00C04FB1625D" 
+  NAME="CDO for Windows Library" -->
+<!--METADATA TYPE="typelib" UUID="00000205-0000-0010-8000-00AA006D2EA4" 
+  NAME="ADODB Type Library" -->
+<% 
+  if Request("submit") <> "" then 
+      Dim objCDO 
+      Set objCDO      = Server.CreateObject("CDO.Message") 
+      Dim objCDOConf 
+
+      Set objCDOConf  = Server.CreateObject("CDO.Configuration") 
+      With objCDOConf.Fields 
+          .Item(cdoSendUsingMethod) = 2 
+          .Item(cdoSMTPServer) = "mail-fwd" 
+          .Item(cdoSMTPServerPort) = 25 
+          .Item(cdoSMTPconnectiontimeout) = 10 
+          .Update 
+      End With
+      Set objCDO.Configuration = objCDOConf 
+      ' Be sure to use a valid email addresses below: 
+      objCDO.From     = "hschaen@gmail.com" 
+      objCDO.To       = "hschaen@gmail.com"  
+      objCDO.Subject  = "FormMail from " & Request.ServerVariables("URL") 
+      objCDO.TextBody = "FormMail from " & Request.ServerVariables("URL") 
+      objCDO.TextBody = objCDO.TextBody & chr(10) & chr(13) 
+      objCDO.TextBody = objCDO.TextBody & "Name: " 
+      objCDO.TextBody = objCDO.TextBody & Request("Name") 
+      objCDO.TextBody = objCDO.TextBody & chr(10) & chr(13) 
+      objCDO.TextBody = objCDO.TextBody & "Email Address: " 
+      objCDO.TextBody = objCDO.TextBody & Request("Email Address") 
+      objCDO.TextBody = objCDO.TextBody & chr(10) & chr(13) 
+      objCDO.TextBody = objCDO.TextBody & "Message: " 
+      objCDO.TextBody = objCDO.TextBody & Request("Message") 
+      objCDO.TextBody = objCDO.TextBody & chr(10) & chr(13) 
+      objCDO.Send 
+      
+      'Clean-up 
+      Set objCDO     = Nothing  
+      Set objCDOConf = Nothing  
+      
+      ' Happy response. If you would rather, 
+      ' change the following to 
+      ' Response.Redirect "thanks.html" or similar 
+      Response.Write "Your Message has been sent. Thank you!"  
+      Response.End 
+  end if 
+%> 
+<html>
+  <body>
+    <form method=POST action="<%=Request.ServerVariables("URL")%>">
+      <h2>Form Mail</h2>
+      <table border=1 cellspacing=0 cellpadding=5>
+        <tr><td>Name&nbsp;</td><td><input type=textbox 
+          name="Name"></td>
+        </tr>
+        <tr><td>Email Address&nbsp;</td><td><input type=textbox 
+          name="Email Address"></td>
+        </tr>
+        <tr><td>Message&nbsp;</td><td><textarea rows=5 cols=20
+          name="Message"></textarea></td>
+        </tr>
+        <tr><td colspan=2 align=center><input type=submit 
+          name=submit value="Submit"></td></tr>
+      </table>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<SCRIPT type="text/javascript" src="./url.js"></script>
+		
+		<script type="text/javascript">  
+			new function() {
+				try {
+					var url		= new URL(document.location.href, true, true);
+					var id		= URL.jdecode(url.getParameter("id"));
+					var height	= url.getParameter("height");
+					if (id && height) {
+						parent.parent.iframe_resize(id, height);
+					}
+				} catch(e) {
+				}
+			}();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

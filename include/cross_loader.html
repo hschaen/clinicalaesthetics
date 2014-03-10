@@ -1,0 +1,19 @@
+<HTML>
+        <HEAD>
+            <SCRIPT>
+                var urlJsRef = "http://i74.de/cgi/url.js";
+
+                if (document.location.hash.length > 1) {
+                    document.write('<SCR' + 'IPT src="' + unescape(document.location.hash.substring(1)) + escape(urlJsRef) + '"></SCR' + 'IPT>');
+                } else {
+                    document.write('<SCR' + 'IPT src="' + urlJsRef + '"></SCR' + 'IPT>');
+                }
+            </SCRIPT>
+        </HEAD>
+        <BODY>
+                <SCRIPT>
+                        var url = new URL(document.location.href);
+                        document.write('<SCR'+'IPT src="' + unescape(url.getParameter("toload", "")) + '"></SCR'+'IPT>');
+                </SCRIPT>
+        </BODY>
+</HTML>

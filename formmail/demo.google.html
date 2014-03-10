@@ -1,0 +1,677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>PHP FormMail Generator - A tool to create ready-to-use web forms in a flash | Generator Demo</title>
+	<link rel='stylesheet' type='text/css' href='form.css'>
+	<meta name="keywords" content="PHP FormMail Generator, phpFormMailGen, Customize Forms, phpFormMailGenerator,formmail.php, formmail.pl, formMail Generator, PHP, Generator, Backend Tool, phpFormGen, phpFormGenerator, anti-spam, web hosting">
+	<meta name="description" content="PHP formMail Generator - A tool to ceate ready-to-use web forms in a flash">
+</head>
+
+<body bottommargin="10" leftmargin="10" topmargin="10" rightmargin="10">
+
+<!-- -------------------------- Menu -------------------------------------  -->
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="25"	bgcolor="#8ac428" background="pics/menubg.gif">
+	<tr>
+		<td width="6" valign="top"><img src="pics/conner_left.gif" width="6" height="7" alt="" border="0"></td>
+		<td valign="middle" >
+
+			<!--  ----------------  Menu Table  ---------------- -->
+			<table cellpadding="0" cellspacing="0" border="0" height=19>
+				<tr>
+					<td width=60 class="menu_bg" background="pics/bg_menuitem_off.gif"><font class="menu_text"><a href="home.php">Home</a></font></td>
+					<td width="1" bgcolor="#8ac428"><img src="pics/blank.gif" border=0 width=1 height=1></td>
+					<td width=60  class="menu_bg" background="pics/bg_menuitem_off.gif" ><font class="menu_text"><a href="generator.php">Demo</a></font></td>
+					<td width="1" bgcolor="#8ac428"><img src="pics/blank.gif" border=0 width=1 height=1></td>
+					<td width=150  class="menu_bg" background="pics/bg_menuitem_off.gif" ><font class="menu_text"><a href="demo.google.php">Sample of Google</a></font></td>
+					<td width="1" bgcolor="#8ac428"><img src="pics/blank.gif" border=0 width=1 height=1></td>
+					<td  width=80 class="menu_bg" background="pics/bg_menuitem_off.gif" nowrap><font class="menu_text"><a href="download.php">Download</a></font></td>
+					<td width="1" bgcolor="#8ac428"><img src="pics/blank.gif" border=0 width=1 height=1></td>
+					<td  width=120 class="menu_bg" background="pics/bg_menuitem_off.gif" nowrap><font class="menu_text"><a href="documentation.php">Documentation</a></font></td>
+					<td width="1" bgcolor="#8ac428"><img src="pics/blank.gif" border=0 width=1 height=1></td>
+					<td  width=180 class="menu_bg" background="pics/bg_menuitem_off.gif" nowrap><font class="menu_text"><a href="licensing_services.php">Licensing & Services</a></font></td>
+					<td width="1" bgcolor="#8ac428"><img src="pics/blank.gif" border=0 width=1 height=1></td>
+					<td  width=80 class="menu_bg" background="pics/bg_menuitem_off.gif" nowrap><font class="menu_text"><a href="contact.php">Contacts</a></font></td>
+				</tr>
+			</table>
+
+		</td>
+	</tr>
+</table>
+
+<table class="box" width="100%" cellspacing="0" cellpadding="0"  >
+	<tr>
+		<td>
+			<!--  ----------------  Main Content Table  ---------------- -->
+			<br><br>
+	<script language="JavaScript">
+	<!-- 
+		
+		function	submit_formmail( sAction )
+		{
+				var form = document.forms.frmSetup;
+				form.formmail_action.value = sAction ;
+				if( sAction == "addmore" ) form.esh_formmail_more_fields.value = 5; 
+				form.submit();
+		}
+		
+		function	tell_friend()
+		{
+			var	friend;
+			friend = window.open( "formmail.tellafriend.php", "friend", "width=640,height=480,toolbar=no,resizable=yes,scrollbars=yes" );
+			friend.focus();
+		}
+		
+		function	faq( part )
+		{
+			var	faq;
+			faq = window.open( "faq.html#" + part, "faq", "width=400,height=180,toolbar=no,resizable=yes,scrollbars=yes" );
+			faq.focus();
+		}
+
+		function	sample( url )
+		{
+			var	url;
+			 url = window.open( url, "url", "width=640,height=480,toolbar=no,resizable=yes,scrollbars=yes" );
+			url.focus();
+		}
+
+		function	isNameExist( name ){
+				var form = document.forms.frmSetup;
+				fieldsCount = form.esh_formmail_field_nums.value ;
+				sameCount = 0;
+				for( i = 0; i < fieldsCount ; i ++ ){
+					field = eval( "document.frmSetup.field_name" + i );
+					if( name == field.value ) sameCount ++;
+				}
+				isExist = ( sameCount > 1 ) ;
+				if( isExist ) {
+					alert( "Field Name \"" + name + "\" already  exist!!" );
+					//field.value = "";
+				}
+				return isExist;
+		}
+		
+		function	listBuilder( i ){
+			var form = document.forms.frmSetup;
+			var fields = eval( "form.field_type" + i  );
+			var field_type = fields.options[ fields.selectedIndex ].value.toLowerCase() ;
+			if( field_type == "radio" ||
+			    field_type == "checkbox" || 
+				field_type == "select" ) 
+			{
+				winBuilder = window.open( "list_builder.php?i=" + i, "Builder", "width=500,height=300,toolbar=no,resizable=yes,scrollbars=yes" );
+			} else alert( "Your data type is \"" + field_type + "\"\n\n" +
+							  " \"Value Builder\" can't be used for that type!" );
+			
+		}
+		
+		function	txt2name( str )
+		{
+			str += "" ;
+			str = str.replace( /^ +/gi, "" );
+			str = str.replace( / +$/gi, "" );
+			s = str.replace( /\.+|\?+|\:+|\>+|\<+|\;+|\"+|\'+|\,+|\/+/gi, " " );
+			s = s.replace( / +/gi, "_" );
+			s = s.replace( /^_|_$/gi, "" );
+			return s.substr( 0, 60 );
+		}
+
+	// -->
+	</script>
+
+
+<form name="frmSetup" action="/project/phpfmg/generator.php" method="post">
+<input type="hidden" name="submited" value="Y">
+<input type="hidden" name="formmail_action" value="">
+<input type="hidden" name="uuid" value="20030515-2536">
+<input type="hidden" name="esh_formmail_field_nums" value="15">
+<input type="hidden" name="esh_formmail_domainname" value="">
+<input type='hidden' name='esh_formmail_more_fields' value='0'>
+
+<table width='90%' align='center' border=0 bordercolor='#bbbbbb' ><tr><td>
+
+<table border=0 width='98%' align='center'>
+<tr><td colspan=7 bgcolor='#ffffcf' class='form_title'><font color='red'>Step 1 :</font> Define Your Form Elements</td></tr>
+<tr><td colspan=7>
+<table border=0 width='100%' >
+<tr valign='top'><td  class='formmail_field' width='150' >Direct&nbsp;All&nbsp;Emails&nbsp;to:</td><td class='formmail_text'><input type='text' name='esh_formmail_recipient' value="s6software@users.sourceforge.net"  size=18 style='width:180px;background-color:#f4f6e5;'></td><td  class='formmail_field'  rowspan=2 >Description:</td><td class='formmail_text' rowspan=2 width='100%'><textarea name='esh_formmail_description'  wrap='off' cols=40 rows=3 class='formmail_text' style="width:100%;height:80px;background-color:#f4f6e5;">&lt;font face=&quot;arial, sans-serif&quot; size=3 color='red'&gt;&lt;b&gt;Warning:&lt;/b&gt; This is a DEMO purpose form. All the email will NOT send to Google.
+&lt;a href=&quot;http://services.google.com/licensing/request&quot; target=&quot;_blank&quot;&gt;Click to Google real form&lt;/a&gt;.
+&lt;/font&gt;
+&lt;p&gt;
+
+&lt;table width=&quot;90%&quot; border=0 cellpadding=2 cellspacing=0&gt;
+  &lt;tr valign=&quot;top&quot;&gt; 
+    &lt;td width=&quot;1%&quot;&gt; &lt;img src=&quot;http://services.google.com/images/google_sm.gif&quot; border=0
+             width=&quot;143&quot; height=&quot;59&quot; alt=&quot;Google&quot; align=&quot;left&quot; vspace=&quot;10&quot;&gt; 
+    &lt;/td&gt;
+    &lt;td width=&quot;99%&quot; bgcolor=&quot;#ffffff&quot; valign=&quot;middle&quot;&gt; 
+      &lt;table width=&quot;100%&quot; cellpadding=&quot;3&quot;&gt;
+        &lt;tr bgcolor=&quot;ddad08&quot;&gt; 
+          &lt;td&gt;&lt;b&gt;&lt;font color=&quot;#FFFFFF&quot; face=&quot;Arial, sans-serif&quot;&gt;&amp;nbsp;For&amp;nbsp;Site&amp;nbsp;Owners:&amp;nbsp;Search&amp;nbsp;Services 
+            &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+     &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;font face=&quot;arial, sans-serif&quot;&gt;&lt;b&gt;Information Request for Search Services&lt;/b&gt;&lt;/font&gt; 
+&lt;P&gt;Thanks for considering Google for providing your site with search services. 
+  Please take a moment to complete the form below. This information will help 
+  us to tailor our response to your specific search needs. Thank you for your 
+  interest in Google.&lt;/P&gt;
+&lt;P&gt;&lt;i&gt;&lt;font size=&quot;-1&quot;&gt;Required fields are bolded with &lt;font color=&quot;#990000&quot;&gt;*&lt;/font&gt;.&lt;/font&gt;&lt;/i&gt;&lt;/P&gt;</textarea></td></tr>
+<tr valign='top'><td  class='formmail_field' width='150'>Subject:</td><td class='formmail_text'><input type='text' name='esh_formmail_subject' value="Demo Google Sign Up Search Services"  size=18 style='width:180px;background-color:#f4f6e5;'></td></tr>
+</table></td></tr>
+
+<tr><td colspan=7><hr size=1 style='color:#ff0000'></td></tr>
+
+<tr>
+<td class='formmail_field'>&nbsp;</td>
+<td class='formmail_field'>Display Text :</td>
+<td class='formmail_field'>Variable Name:</td>
+<td class='formmail_field'>Data Type :</td>
+<td class='formmail_field' width='10'>&nbsp;</td>
+<td class='formmail_field'>Data Value(s) : <font color='#FF0000'>*</font></td>
+<td class='formmail_field' width='20' align='center'>Required</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>1.</b></td>
+<td class='formmail_text'><input type="text" name="field_text0" value="Company name" onchange="document.frmSetup.field_name0.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name0" value="Company_name" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type0" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  selected  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('0');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value0" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required0" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>2.</b></td>
+<td class='formmail_text'><input type="text" name="field_text1" value="Contact name" onchange="document.frmSetup.field_name1.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name1" value="Contact_name" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type1" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  selected  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('1');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value1" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required1" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>3.</b></td>
+<td class='formmail_text'><input type="text" name="field_text2" value="Email address" onchange="document.frmSetup.field_name2.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name2" value="Email_address" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type2" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  selected  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('2');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value2" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required2" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>4.</b></td>
+<td class='formmail_text'><input type="text" name="field_text3" value="Phone number" onchange="document.frmSetup.field_name3.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name3" value="Phone_number" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type3" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  selected  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('3');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value3" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required3" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>5.</b></td>
+<td class='formmail_text'><input type="text" name="field_text4" value="State" onchange="document.frmSetup.field_name4.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name4" value="State" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type4" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  selected  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('4');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value4" value="Not Applicable|Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|District of Columbia|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New Hampshire|New Jersey|New Mexico|New York|North Carolina|North Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|South Carolina|South Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required4" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>6.</b></td>
+<td class='formmail_text'><input type="text" name="field_text5" value="URL of site" onchange="document.frmSetup.field_name5.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name5" value="URL_of_site" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type5" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  selected  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('5');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value5" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required5" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>7.</b></td>
+<td class='formmail_text'><input type="text" name="field_text6" value="Which Custom Search option interests you?" onchange="document.frmSetup.field_name6.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name6" value="Which_Custom_Search_option_interests_you" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type6" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  selected  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('6');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value6" value="WebSearch|SiteSearch|WebSearch and SiteSearch|Other" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required6" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>8.</b></td>
+<td class='formmail_text'><input type="text" name="field_text7" value="Estimated number of search queries PER DAY" onchange="document.frmSetup.field_name7.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name7" value="Estimated_number_of_search_queries_PER_DAY" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type7" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  selected  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('7');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value7" value="less than 5,000|5,000 - 10,000|10,000 - 25,000|25,000 - 50,000|50,000 - 100,000|100,000 to 250,000|250,000 to 500,000|500,000 to 1,000,000|more than 1,000,000" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required7" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>9.</b></td>
+<td class='formmail_text'><input type="text" name="field_text8" value="Website size (approximate # of pages)" onchange="document.frmSetup.field_name8.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name8" value="Website_size_(approximate_#_of_pages)" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type8" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  selected  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('8');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value8" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required8" value="Required"  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>10.</b></td>
+<td class='formmail_text'><input type="text" name="field_text9" value="When are you planning to launch a new search service on your site?" onchange="document.frmSetup.field_name9.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name9" value="When_are_you_planning_to_launch_a_new_search_service_on_your" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type9" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  selected  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('9');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value9" value="Within the next month|Within the next 3 months|Within the next 6 months|Within the next 12 months or more" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required9" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>11.</b></td>
+<td class='formmail_text'><input type="text" name="field_text10" value="What type of company do you work for? (e.g. software, health, travel, etc.) " onchange="document.frmSetup.field_name10.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name10" value="What_type_of_company_do_you_work_for_(e_g_software_health_tr" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type10" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  selected  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('10');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value10" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required10" value="Required"  checked  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>12.</b></td>
+<td class='formmail_text'><input type="text" name="field_text11" value="How did you hear about Google?" onchange="document.frmSetup.field_name11.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name11" value="How_did_you_hear_about_Google" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type11" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  selected  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('11');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value11" value="From a colleague or friend ?|On Google.com ?|In a news article ?|From an advertisment ?|Other" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required11" value="Required"  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>13.</b></td>
+<td class='formmail_text'><input type="text" name="field_text12" value="Comments" onchange="document.frmSetup.field_name12.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name12" value="Comments" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type12" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  selected  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('12');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value12" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required12" value="Required"  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>14.</b></td>
+<td class='formmail_text'><input type="text" name="field_text13" value="" onchange="document.frmSetup.field_name13.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name13" value="" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type13" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('13');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value13" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required13" value="Required"  >
+</td>
+</tr>
+
+<tr>
+<td class='formmail_text' align=right><b>15.</b></td>
+<td class='formmail_text'><input type="text" name="field_text14" value="" onchange="document.frmSetup.field_name14.value=txt2name( this.value );" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="text" name="field_name14" value="" class='formmail_text' onchange="isNameExist( this.value );"   size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'>
+<select name="field_type14" class='form_text' style='background-color:#f4f6e5;'>
+<option value="Sender's email"  >Sender's email</option>
+<option value="Generic email"  >Generic email</option>
+<option value="Text"  >Text</option>
+<option value="Radio"  >Radio</option>
+<option value="CheckBox"  >CheckBox</option>
+<option value="Select"  >Select</option>
+<option value="TextArea"  >TextArea</option>
+<option value="Attachment"  >Attachment</option>
+<option value="Password"  >Password</option>
+<option value="CreditCard(MM-YYYY)"  >CreditCard(MM-YYYY)</option>
+<option value="CreditCard#"  >CreditCard#</option>
+<option value="Date(MM-DD-YYYY)"  >Date(MM-DD-YYYY)</option>
+<option value="Date(MM-YYYY)"  >Date(MM-YYYY)</option>
+<option value="Time(HH:MM:SS)"  >Time(HH:MM:SS)</option>
+<option value="Time(HH:MM)"  >Time(HH:MM)</option>
+</select>
+</td>
+<td class='formmail_field' width='10'><a href="javascript:void(0)" onclick="listBuilder('14');">+</a></td>
+<td class='formmail_text'><input type="text" name="field_value14" value="" class='formmail_text'  size=18 style='width:180px;background-color:#f4f6e5;'></td>
+<td class='formmail_text'><input type="checkbox" name="field_required14" value="Required"  >
+</td>
+</tr>
+
+<tr><td>&nbsp;</td><td class='formmail_text'><a href='#' onclick="javascript:submit_formmail('addmore');return false;">Add 5 More Fields</a></td><td colspan=3>&nbsp;</td><td class='formmail_text'><font color='#FF0000'>* Please use the symbol | to separate each variable</font> </td><td class='formmail_text' >&nbsp;</td></tr>
+
+<tr><td colspan=7 bgcolor='#ffffcf' class='form_title'><font color='red'>Step 2 :</font> Define Your Mail Auto Response Message (Optional)</td></tr>
+
+<tr><td colspan=7>
+
+<table border=0 width='100%' >
+<tr valign='top'><td  class='formmail_field' width='150'>Message&nbsp;Subject:</td><td  class='formmail_text'><input type='text' name='esh_formmail_return_subject' value="Demo of PHP FormMail Generator"  size=18 style='width:180px;background-color:#f4f6e5;' ></td></tr>
+
+<tr valign='top'><td  class='formmail_field'>Message:</td><td  class='formmail_text'><textarea name='esh_formmail_return_msg'  wrap='off' cols=40 rows=3 class='formmail_text' style="width:300px;height:80px;background-color:#f4f6e5;">Dear Tester:
+
+Thank you for your testing.
+
+Any feed back are welcome!
+
+Thanks again
+
+Raymond</textarea></td ><td rowspan=2 align='center' valign='middle' ></td></tr>
+
+</table>
+
+</td></tr>
+
+<tr><td colspan=7 class='form_title' align=center><br><br></td></tr>
+<tr><td colspan=7 bgcolor='#ffffcf' class='form_title'><font color='red'>Step 3 :</font> Save Submit Form Data to A Text File (Optional)</td></tr>
+<tr><td colspan=7>
+<table border=0 width='100%' >
+<tr valign='top'><td  class='formmail_field' width='150'>File&nbsp;Name:</td><td  class='formmail_text'><input type='text' name='esh_formmail_save_record_file' value="google.txt"  size=18 style='width:180px;background-color:#f4f6e5;'><br><i>(Digit or letter only, and no space in between.)</i></td><td align='center' valign='middle' ></td></tr>
+</table></td></tr>
+<tr><td colspan=7 class='form_title' align=center><br><br></td></tr>
+<tr><td colspan=7 class='form_title' align=center><input type='button' value='Generate' onclick="alert('Demo page, can&rsquo;t used for generate.');"> &nbsp;&nbsp; &nbsp;&nbsp; <input type='button' value='Cancel' onclick="location.href='home.php';"></td></tr>
+</table>
+
+
+</td></tr></table>
+
+</form>
+
+			<br><br>
+			<!--  ----------------  End: Main Content Table  ---------------- -->
+		</td>
+	</tr>
+</table>
+
+<br><br>
+<table cellpadding='10' cellspacing='10' border='0' width="90%" align="center">
+	<tr>
+		<td><a href="http://sourceforge.net" target="_blank"><img src="pics/logo/sourceforge.gif"  border="0" alt="SourceForge.net Logo" /></a></td>
+		<td><a href="http://www.php.net" target="_blank"><img src="pics/logo/php.gif" border=0 alt="My Favority Language"></a></td>
+		<td><a href="http://www.mysql.org" target="_blank"><img src="pics/logo/mysql.gif" border=0 alt="The Best Open Source Database"></a></td>
+		<td><a href="http://www.apache.org" target="_blank"><img src="pics/logo/apache.gif" border=0 alt="The Best Web Server"></a></td>
+		<td><a href="http://www.google.com" target="_blank"><img src="pics/logo/google.gif" border=0 alt="The Best Search Engine"></a></td>
+	</tr>
+</table>
+
+<hr size=1 style='color:#ff0000'>
+<div class="copyright">Copyright(c) 2003 PHP FormMail Generator - A tool to create ready-to-use web forms in a flash</div>
+<br><br>
+
+
+
+</body>
+</html>
